@@ -8,3 +8,4 @@ done    halt                                # End of program
 five    .fill   5                           # Store the value 5
 neg1    .fill   -1                          # Store the value -1
 stAddr  .fill   start                       # Will contain the address of 'start'
+noop

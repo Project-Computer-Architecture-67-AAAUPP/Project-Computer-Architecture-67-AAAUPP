@@ -1,5 +1,3 @@
-# assembler.py
-
 import sys
 
 # แปลง opcode เป็นเลขฐานสอง
@@ -13,7 +11,6 @@ OPCODES = {
     'halt': '110',
     'noop': '111'
 }
-
 # รวบรวม label และ address ของมัน
 def first_pass(input_file):
     labels = {}
@@ -41,14 +38,13 @@ def assemble_instruction(line, labels, current_address):
     
     instruction = parts[0]
 
-    # แปลงคำสั่งแบบต่าง ๆ เป็น machine code
     if instruction in OPCODES:
         opcode = OPCODES[instruction]
         if instruction in ['add', 'nand']:  # R-type
             reg_a = int(parts[1])
             reg_b = int(parts[2])
             dest_reg = int(parts[3])
-            return f"{int(opcode, 2):03b}000{reg_a:03b}{reg_b:03b}{'0' * 13}{dest_reg:03b}"
+            return f"{opcode}{reg_a:03b}{reg_b:03b}{'0' * 13}{dest_reg:03b}"
         elif instruction in ['lw', 'sw', 'beq']:  # I-type
             reg_a = int(parts[1])
             reg_b = int(parts[2])
@@ -58,14 +54,21 @@ def assemble_instruction(line, labels, current_address):
                 offset = labels[offset_field] - (current_address + 1)
             else:
                 offset = int(offset_field)
-            offset = offset & 0xFFFF  # เก็บเฉพาะ 16 บิต (2's complement)
-            return f"{int(opcode, 2):03b}000{reg_a:03b}{reg_b:03b}{offset:016b}"
+            
+            # ตรวจสอบว่า offset อยู่ในช่วง -32768 ถึง 32767
+            if offset < -32768 or offset > 32767:
+                print(f"Error: Offset {offset} out of range at line: {line}")
+                sys.exit(1)
+            
+            # แปลง offset เป็น 16-bit two's complement
+            offset = offset & 0xFFFF  # เก็บเฉพาะ 16 บิต
+            return f"{opcode}{reg_a:03b}{reg_b:03b}{offset:016b}"
         elif instruction == 'jalr':  # J-type
             reg_a = int(parts[1])
             reg_b = int(parts[2])
-            return f"{int(opcode, 2):03b}000{reg_a:03b}{reg_b:03b}{'0' * 16}"
+            return f"{opcode}{reg_a:03b}{reg_b:03b}{'0' * 16}"
         elif instruction in ['halt', 'noop']:  # O-type
-            return f"{int(opcode, 2):03b}" + "0" * 22
+            return f"{opcode}" + "0" * 22
     elif instruction == '.fill':  # จัดการกับคำสั่ง .fill
         value = parts[1]
         if value in labels:
@@ -80,23 +83,18 @@ def assemble(input_file, output_file):
     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
         address = 0
         for line in infile:
-            # แยกส่วนต่าง ๆ ของบรรทัดและตรวจสอบว่ามีอย่างน้อย 1 ส่วน
             parts = line.split()
             if len(parts) == 0:
                 continue  # ข้ามบรรทัดว่าง
 
-            # ตรวจสอบว่าเป็นคำสั่ง .fill หรือไม่
-            if parts[0] == '.fill' or (len(parts) > 1 and parts[1] == '.fill'):
-                machine_code = assemble_instruction(line, labels, address)
-                if machine_code is not None:
-                    # เขียนค่าโดยตรง (ไม่ใช่เลขฐานสอง)
+            machine_code = assemble_instruction(line, labels, address)
+            if machine_code is not None:
+                # ตรวจสอบว่าเป็นคำสั่ง .fill หรือไม่
+                if parts[0] == '.fill' or (len(parts) > 1 and parts[1] == '.fill'):
                     outfile.write(f"{machine_code}\n")
-            else:
-                machine_code = assemble_instruction(line, labels, address)
-                if machine_code is not None:
-                    # แปลง machine code เป็นฐานสองและเขียน
+                else:
+                    # แปลง machine code เป็น integer และเขียนออกมา
                     outfile.write(f"{int(machine_code, 2)}\n")
-                    
             address += 1
 
 # ทดสอบการทำงานของ Assembler
@@ -104,7 +102,6 @@ if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: python AssemblyToMachineCode.py <input_file> <output_file>")
         sys.exit(1)
-
     input_file = sys.argv[1]
     output_file = sys.argv[2]
     assemble(input_file, output_file)
