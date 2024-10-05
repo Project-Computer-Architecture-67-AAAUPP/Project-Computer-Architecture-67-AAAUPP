@@ -1,0 +1,4 @@
+ Noted
+ #python AssemblyToMachineCode.py test.asm output.mc            //for run
+ #test.asm = input file                                         // each line is one instruction code 
+ #output.mc = output file                                       // after compile assembly this file will collect that result of compile as machinecode in decimal
