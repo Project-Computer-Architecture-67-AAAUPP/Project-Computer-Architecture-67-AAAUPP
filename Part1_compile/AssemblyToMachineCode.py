@@ -28,16 +28,12 @@ def first_pass(input_file):
 # แปลงคำสั่ง assembly เป็น machine code
 def assemble_instruction(line, labels, current_address):
     parts = line.split()
-    
     if len(parts) == 0 or parts[0].startswith('#'):
         return None  # ข้ามบรรทัดว่างหรือคอมเมนต์
-    
     # ตรวจสอบว่ามี label ในบรรทัด
     if parts[0] not in OPCODES and parts[0] not in ['.fill']:
         parts = parts[1:]  # ข้าม label ไป
-    
     instruction = parts[0]
-
     if instruction in OPCODES:
         opcode = OPCODES[instruction]
         if instruction in ['add', 'nand']:  # R-type
@@ -86,7 +82,6 @@ def assemble(input_file, output_file):
             parts = line.split()
             if len(parts) == 0:
                 continue  # ข้ามบรรทัดว่าง
-
             machine_code = assemble_instruction(line, labels, address)
             if machine_code is not None:
                 # ตรวจสอบว่าเป็นคำสั่ง .fill หรือไม่
