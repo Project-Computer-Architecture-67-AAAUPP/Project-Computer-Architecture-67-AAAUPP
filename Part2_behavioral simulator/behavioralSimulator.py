@@ -136,3 +136,12 @@ memory = load_memory_from_file('output.mc')
 # เรียกใช้ simulator กับ machine code ที่โหลดมา
 print_memory(memory)
 simulate(memory, len(memory))
+
+# # โหลด machine code จากไฟล์ output_multiply.mc
+# memory = load_memory_from_file('output_multiply.mc')
+
+# # เรียกใช้ simulator กับ machine code ที่โหลดมา
+# print_memory(memory)
+# simulate(memory, len(memory))
+
+
