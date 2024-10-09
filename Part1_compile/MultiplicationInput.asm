@@ -1,4 +1,4 @@
-# multiple Assembler
+# Multiplication Assembler
         lw      0       1       mcand       # โหลดค่า multiplicand ลงใน reg1 (ตัวตั้ง)
         lw      0       2       mplier      # โหลดค่า multiplier ลงใน reg2 (ตัวคูณ)
         lw      0       3       zero        # โหลดค่า 0 ลงใน reg3 (ผลลัพธ์การคูณ)

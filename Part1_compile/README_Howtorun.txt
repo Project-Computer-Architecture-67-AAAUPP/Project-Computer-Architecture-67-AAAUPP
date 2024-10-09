@@ -5,7 +5,7 @@ Part 3 : Compiler for Function Multiple&Combination
     #run Test 
         -python AssemblyToMachineCode.py TestInput.asm TestOutput.mc
     #run Multiple
-        -python AssemblyToMachineCode.py MultipleInput.asm MultipleOutput.mc
+        -python AssemblyToMachineCode.py MultiplicationInput.asm MultiplicationOutput.mc
     #run Combination
         -python AssemblyToMachineCode.py CombinationInput.asm CombinationOutput.mc
  #test.asm = input file                                         // each line is one instruction code 
