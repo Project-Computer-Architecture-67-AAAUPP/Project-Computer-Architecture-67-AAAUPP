@@ -56,6 +56,7 @@ def simulate(memory, memory_size):
     Returns:
     None: ฟังก์ชันนี้จะจำลองการทำงานและแสดงผลสถานะของเครื่อง
     """
+    
     reg = [0] * 8  # ตั้งค่า registers 8 ตัวให้เป็น 0
     pc = 0  # ค่า program counter เริ่มที่ 0
     running = True
@@ -79,7 +80,12 @@ def simulate(memory, memory_size):
         elif opcode == 1:  # nand
             reg[destReg] = ~(reg[regA] & reg[regB])
         elif opcode == 2:  # lw (load)
-            reg[regB] = memory[reg[regA] + offsetField]
+            address = reg[regA] + offsetField
+            if 0 <= address < len(memory):
+                reg[regB] = memory[address]
+            else:
+                print(f"Memory access out of range at address {address}")
+                running = False  # หยุดการจำลองเมื่อเข้าถึงหน่วยความจำที่อยู่นอกขอบเขต
         elif opcode == 3:  # sw (store)
             memory[reg[regA] + offsetField] = reg[regB]
         elif opcode == 4:  # beq (branch if equal)
@@ -92,6 +98,9 @@ def simulate(memory, memory_size):
             running = False
         elif opcode == 7:  # noop (no operation)
             pass
+        # พิมพ์ค่าที่เกี่ยวข้องในแต่ละคำสั่ง
+        print(f"pc={pc}, opcode={opcode}, regA={regA}, regB={regB}, destReg={destReg}, offsetField={offsetField}")
+
 
         pc += 1  # เลื่อนไปยังคำสั่งถัดไป
         instruction_count += 1
@@ -117,8 +126,9 @@ def load_memory_from_file(file_path):
     memory = []
     with open(file_path, 'r') as file:
         for line in file:
-            # อ่านแต่ละบรรทัดและแปลงเป็น integer แล้วเพิ่มเข้าไปใน memory
-            memory.append(int(line.strip()))
+            line = line.strip()
+            if line:  # ตรวจสอบว่าบรรทัดไม่ใช่ค่าว่าง
+                memory.append(int(line))
     return memory
   
 
@@ -129,19 +139,11 @@ def print_memory(memory):
     for i in range(len(memory)):
         print(f"memory[{i}]={memory[i]}")
 
-
 # โหลด machine code จากไฟล์ output.mc
 memory = load_memory_from_file('output.mc')
-
 # เรียกใช้ simulator กับ machine code ที่โหลดมา
 print_memory(memory)
 simulate(memory, len(memory))
 
-# # โหลด machine code จากไฟล์ output_multiply.mc
-# memory = load_memory_from_file('output_multiply.mc')
-
-# # เรียกใช้ simulator กับ machine code ที่โหลดมา
-# print_memory(memory)
-# simulate(memory, len(memory))
 
 
