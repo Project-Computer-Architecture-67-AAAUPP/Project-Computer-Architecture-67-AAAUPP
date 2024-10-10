@@ -45,12 +45,8 @@ def i_getArgs(bitstring):
 
 def main():
     import sys
-    debug = False
 
-    if len(sys.argv) == 3 and sys.argv[2] == "-d":
-        print("***********DEBUG MODE ENABLED***********")
-        debug = True
-    elif len(sys.argv) != 2:
+    if len(sys.argv) != 2:
         print(f"error: usage: {sys.argv[0]} <machine-code file>")
         return
 

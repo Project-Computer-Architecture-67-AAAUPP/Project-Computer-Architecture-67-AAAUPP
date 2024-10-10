@@ -2,7 +2,7 @@ import sys
 
 # Constants
 MAXLINELENGTH = 1000  # Max length of a single line of code.
-MAXLINES = 50          # Max assembly program length.
+MAXLINES = 100          # Max assembly program length.
 STACK_SIZE = 50       # Number of slots for the stack
 # List of valid opcodes
 VALID_OPCODES = ['add', 'nand', 'lw', 'sw', 'beq', 'jalr', 'halt', 'noop', '.fill']
@@ -33,7 +33,7 @@ def prepare_file(filename, mode):
 
 # Validate a label
 def is_valid_label(label):
-    if len(label) > 6:
+    if len(label) > 12:
         return False
     if not label[0].isalpha():
         return False
