@@ -75,8 +75,6 @@ def main():
 
     total_instructions = 0
     while True:
-        if debug:
-            print(f"run: {total_instructions + 1}")
         total_instructions += 1
         printState(state)
 
