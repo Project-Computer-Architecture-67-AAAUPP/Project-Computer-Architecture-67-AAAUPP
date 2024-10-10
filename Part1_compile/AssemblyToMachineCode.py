@@ -53,26 +53,18 @@ def assemble_instruction(line, labels, current_address):
             dest_reg = int(parts[3])  # destination register
             # สร้าง machine code โดยบิตที่ 31-25 ถูกตั้งเป็น 0 เสมอ
             return f"{'0' * 7}{opcode}{reg_a:03b}{reg_b:03b}{'0' * 13}{dest_reg:03b}"
-        elif instruction in ['lw', 'sw', 'beq']:  # I-type instruction
+        elif instruction in ['lw', 'sw']:  # I-type instruction
             reg_a = int(parts[1])  # register A
             reg_b = int(parts[2])  # register B
             offset_field = parts[3]  # offset field
 
             # ตรวจสอบว่า offset_field เป็น label หรือไม่
             if offset_field in labels:
-                # ตรวจสอบว่าเป็นคำสั่ง beq หรือไม่
-                if instruction == 'beq':
-                    # สำหรับ beq ต้องคำนวณ offset โดยใช้ (current_address + 1)
-                    offset = labels[offset_field] - (current_address + 1)
-                else:
-                    # สำหรับ lw, sw ให้ใช้ current_address ตรงๆ
-                    offset = labels[offset_field] - current_address
+                offset = labels[offset_field]
             else:
                 try:
-                    # ถ้าไม่ใช่ label, ให้แปลงเป็นตัวเลขตรงๆ
                     offset = int(offset_field)
                 except ValueError:
-                    # ถ้า offset ไม่เป็นตัวเลขหรือ label ให้แสดง error และหยุดการทำงาน
                     print(f"Error: Invalid offset or label in line: {line}")
                     sys.exit(1)
 
@@ -83,28 +75,44 @@ def assemble_instruction(line, labels, current_address):
 
             # แปลง offset เป็น 16-bit two's complement
             offset = offset & 0xFFFF  # เก็บเฉพาะ 16 บิต
-            # สร้าง machine code โดยบิตที่ 31-25 ถูกตั้งเป็น 0 เสมอ
+            return f"{'0' * 7}{opcode}{reg_a:03b}{reg_b:03b}{offset:016b}"
+
+        elif instruction in ['beq']:
+            reg_a = int(parts[1])  # register A
+            reg_b = int(parts[2])  # register B
+            offset_field = parts[3]  # offset field
+
+            if offset_field in labels:
+                offset = labels[offset_field] - (current_address + 1)  # Relative offset
+            else:
+                try:
+                    offset = int(offset_field)
+                except ValueError:
+                    print(f"Error: Invalid offset or label in line: {line}")
+                    sys.exit(1)
+
+            # ตรวจสอบว่า offset อยู่ในช่วง 16-bit
+            if offset < -32768 or offset > 32767:
+                print(f"Error: Offset {offset} out of range at line: {line}")
+                sys.exit(1)
+
+            offset = offset & 0xFFFF  # เก็บเฉพาะ 16 บิต
             return f"{'0' * 7}{opcode}{reg_a:03b}{reg_b:03b}{offset:016b}"
 
         elif instruction == 'jalr':  # J-type instruction
             reg_a = int(parts[1])  # register A
             reg_b = int(parts[2])  # register B
-            # สร้าง machine code โดยบิตที่ 31-25 ถูกตั้งเป็น 0 เสมอ
             return f"{'0' * 7}{opcode}{reg_a:03b}{reg_b:03b}{'0' * 16}"
         elif instruction in ['halt', 'noop']:  # O-type instruction
-            # สร้าง machine code โดยบิตที่ 31-25 ถูกตั้งเป็น 0 เสมอ
             return f"{'0' * 7}{opcode}" + "0" * 22
     elif instruction == '.fill':  # จัดการคำสั่ง .fill
         value = parts[1]  # value ที่จะใช้ใน .fill
         if value in labels:
-            # ถ้า value เป็น label คืนค่า address ของ label นั้น
             return str(labels[value])
         else:
             try:
-                # ถ้า value เป็นตัวเลข คืนค่าตัวเลขนั้นตรงๆ
                 return str(int(value))
             except ValueError:
-                # ถ้า value ไม่ใช่ตัวเลขหรือ label ให้แสดง error และหยุดการทำงาน
                 print(f"Error: Invalid .fill value in line: {line}")
                 sys.exit(1)
     return None  # ถ้าคำสั่งไม่ถูกต้อง
@@ -129,11 +137,6 @@ def assemble(input_file, output_file):
                     # แปลง machine code เป็น integer จากเลขฐานสอง
                     value = int(machine_code, 2)
 
-                # แปลง machine code เป็นเลขฐาน 16 และ 2
-                # hex_value = hex(value & 0xFFFFFFFF)  # แปลงเป็นเลขฐาน 16
-                # bin_value = bin(value & 0xFFFFFFFF)[2:].zfill(32)  # แปลงเป็นเลขฐาน 2 ให้มี 32 บิต
-                # เขียนผลลัพธ์ลงไฟล์พร้อม address และค่าในฐาน 10, 16, 2
-                # outfile.write(f"(address {address}): {value} (hex {hex_value}) (binary {bin_value})\n")
                 # เขียนเฉพาะค่าในฐาน 10 ลงในไฟล์
                 outfile.write(f"{value}\n")
             address += 1  # เพิ่ม address หลังจากอ่านแต่ละบรรทัด

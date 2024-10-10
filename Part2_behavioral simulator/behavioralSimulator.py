@@ -1,135 +1,141 @@
-def convertNum(num):
-    """
-    แปลงเลข 16 บิตให้เป็นเลข 32 บิตโดยใช้การขยาย sign (sign extension)
-    ฟังก์ชันนี้จะใช้เพื่อแปลงค่าที่เป็น 16-bit 2's complement 
-    ไปเป็นค่า 32-bit integer เพื่อรักษาความหมายของเลขลบ
+NUMMEMORY = 65536  # จำนวนคำสูงสุดในหน่วยความจำ
+NUMREGS = 8  # จำนวนเรจิสเตอร์
+MAXLINELENGTH = 1000  # ขนาดสูงสุดของแต่ละบรรทัดในไฟล์
 
-    Parameters:
-    num (int): เลข 16 บิตที่จะแปลง (อาจจะเป็นบวกหรือลบใน 2's complement)
+class State:
+    def __init__(self):
+        self.pc = 0
+        self.mem = [0] * NUMMEMORY
+        self.reg = [0] * NUMREGS
+        self.numMemory = 0
 
-    Returns:
-    int: เลข 32 บิตที่ถูกแปลงแล้ว
-
-    ตัวอย่าง:
-    - convertNum(1000) -> 1000 (บวก, คงค่าเดิม)
-    - convertNum(0xFFFF) -> -1 (ลบ, แปลงเป็นค่า 32 บิต)
-    """
-    if num & (1 << 15):  # ถ้า bit ที่ 15 ของ num มีค่าเป็น 1 (หมายถึงเลขลบใน 16-bit)
-        num -= (1 << 16)  # ลบ 65536 เพื่อขยาย sign เป็นเลขลบ 32-bit
-    return num
-
-
-def printState(pc, reg, memory, memory_size):
-    """
-    แสดงสถานะปัจจุบันของโปรแกรม (program counter, ค่าใน registers, และ memory)
-    
-    Parameters:
-    pc (int): ค่า program counter ปัจจุบัน (ตำแหน่งคำสั่งในหน่วยความจำ)
-    reg (list): ลิสต์ที่เก็บค่าของ 8 registers (32-bit แต่ละตัว)
-    memory (list): หน่วยความจำที่เก็บ machine code และข้อมูล
-    memory_size (int): ขนาดของหน่วยความจำ (บอกจำนวนที่ต้องการพิมพ์)
-
-    Returns:
-    None: ฟังก์ชันนี้จะพิมพ์สถานะของเครื่องออกมาที่หน้าจอ
-    """
-    print("\n" + "@@@")
-    print("state:")
-    print(f"\tpc {pc}")
+def printState(state):
+    """แสดงสถานะของเครื่องจำลอง"""
+    print("\n@@@\nstate:")
+    print(f"\tpc {state.pc}")
     print("\tmemory:")
-    for i in range(memory_size):
-        print(f"\t\tmem[ {i} ] {memory[i]}")
+    for i in range(state.numMemory):
+        print(f"\t\tmem[ {i} ] {state.mem[i]}")
     print("\tregisters:")
-    for i in range(8):
-        print(f"\t\treg[ {i} ] {reg[i]}")
+    for i in range(NUMREGS):
+        print(f"\t\treg[ {i} ] {state.reg[i]}")
     print("end state")
 
+def convertNum(num):
+    """แปลงค่า 16-bit เป็น 32-bit"""
+    if num & (1 << 15):
+        num -= (1 << 16)
+    return num
 
-def simulate(memory, memory_size):
-    """
-    จำลองการทำงานของเครื่อง SMC โดยใช้ machine code ที่อยู่ในหน่วยความจำ
-    """
-    reg = [0] * 8  # ตั้งค่า registers 8 ตัวให้เป็น 0
-    pc = 0  # ค่า program counter เริ่มที่ 0
-    running = True
-    instruction_count = 0
+def r_getArgs(bitstring):
+    """ถอดรหัสคำสั่ง R-type"""
+    regA = (bitstring >> 19) & 0x7
+    regB = (bitstring >> 16) & 0x7
+    destReg = bitstring & 0x7
+    return regA, regB, destReg
 
-    while running:
-        # ดึงคำสั่งจาก memory
-        instruction = memory[pc]
-        printState(pc, reg, memory, memory_size)
+def i_getArgs(bitstring):
+    """ถอดรหัสคำสั่ง I-type"""
+    regA = (bitstring >> 19) & 0x7
+    regB = (bitstring >> 16) & 0x7
+    offsetField = bitstring & 0xFFFF
+    offsetField = convertNum(offsetField)
+    return regA, regB, offsetField
 
-        # ถอดรหัสคำสั่ง
-        opcode = (instruction >> 22) & 0x7  # ดึง bits 24-22 เพื่อหา opcode
-        regA = (instruction >> 19) & 0x7
-        regB = (instruction >> 16) & 0x7
-        destReg = instruction & 0x7
-        offsetField = convertNum(instruction & 0xFFFF)  # offsetField 16-bit
 
-        # ประมวลผลคำสั่ง
-        if opcode == 0:  # add
-            reg[destReg] = reg[regA] + reg[regB]
-        elif opcode == 1:  # nand
-            reg[destReg] = ~(reg[regA] & reg[regB])
-        elif opcode == 2:  # lw (load)
-            reg[regB] = memory[reg[regA] + offsetField]
-        elif opcode == 3:  # sw (store)
-            memory[reg[regA] + offsetField] = reg[regB]
-        elif opcode == 4:  # beq (branch if equal)
-            if reg[regA] == reg[regB]:
-                pc += offsetField
-        elif opcode == 5:  # jalr (jump and link register)
-            reg[regB] = pc + 1
-            pc = reg[regA] - 1  # -1 เพราะ pc จะถูกเพิ่มขึ้นหลังจากนี้
-        elif opcode == 6:  # halt
-            running = False
-        elif opcode == 7:  # noop (no operation)
+def main():
+    import sys
+    debug = False
+
+    if len(sys.argv) == 3 and sys.argv[2] == "-d":
+        print("***********DEBUG MODE ENABLED***********")
+        debug = True
+    elif len(sys.argv) != 2:
+        print(f"error: usage: {sys.argv[0]} <machine-code file>")
+        return
+
+    # เปิดไฟล์ machine code
+    filename = sys.argv[1]
+    try:
+        with open(filename, 'r') as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        print(f"ERROR: Can't open file {filename}")
+        return
+
+    # ตั้งค่าเริ่มต้น
+    state = State()
+    for line in lines:
+        if state.numMemory >= NUMMEMORY:
+            print(f"ERROR: Max number of words exceeded. Max: {NUMMEMORY}")
+            return
+        try:
+            state.mem[state.numMemory] = int(line.strip())
+            print(f"memory[{state.numMemory}]={state.mem[state.numMemory]}")
+            state.numMemory += 1
+        except ValueError:
+            print(f"ERROR: Failed to read address {line.strip()}")
+            return
+
+    total_instructions = 0
+    while True:
+        if debug:
+            print(f"run: {total_instructions + 1}")
+        total_instructions += 1
+        printState(state)
+
+        instruction = state.mem[state.pc]
+        opcode = instruction >> 22
+
+        if opcode == 0:  # ADD
+            regA, regB, destReg = r_getArgs(instruction)
+            state.reg[destReg] = state.reg[regA] + state.reg[regB]
+
+        elif opcode == 1:  # NAND
+            regA, regB, destReg = r_getArgs(instruction)
+            state.reg[destReg] = ~(state.reg[regA] & state.reg[regB])
+
+        elif opcode == 2:  # LW
+            regA, regB, offsetField = i_getArgs(instruction)
+            address = state.reg[regA] + offsetField
+            if address < 0 or address >= state.numMemory:
+                print(f"ERROR: Invalid memory address: {address} (out of range).")
+                return
+            state.reg[regB] = state.mem[address]
+
+        elif opcode == 3:  # SW
+            regA, regB, offsetField = i_getArgs(instruction)
+            address = state.reg[regA] + offsetField
+            if address < 0 or address >= state.numMemory:
+                print(f"ERROR: Invalid memory address: {address} (out of range).")
+                return
+            state.mem[address] = state.reg[regB]
+
+        elif opcode == 4:  # BEQ
+            regA, regB, offsetField = i_getArgs(instruction)
+            if state.reg[regA] == state.reg[regB]:
+                state.pc += offsetField
+                
+        elif opcode == 5:  # JALR
+            regA, regB, destReg = r_getArgs(instruction)
+            if state.reg[regB] != 0:
+                state.reg[destReg] = state.reg[regA]
+
+        elif opcode == 6:  # HALT
+            print("machine halted")
+            print(f"total of {total_instructions} instructions executed")
+            print("final state of machine:")
+            printState(state)
+            return
+
+        elif opcode == 7:  # NOOP
             pass
 
-        # พิมพ์ค่าที่เกี่ยวข้องในแต่ละคำสั่ง
-        print(f"pc={pc}, opcode={opcode}, regA={regA}, regB={regB}, destReg={destReg}, offsetField={offsetField}")
-        
-        pc += 1  # เลื่อนไปยังคำสั่งถัดไป
-        instruction_count += 1
+        state.pc += 1
 
-    # แสดงผลสถานะสุดท้ายหลังจาก halt
-    # พิมพ์สถานะสุดท้ายเมื่อเครื่องหยุดทำงาน
-    print("machine halted")
-    print(f"total of {instruction_count} instructions executed")
-    print("final state of machine:")
-    printState(pc, reg, memory, memory_size)
+        if state.pc >= state.numMemory or state.pc < 0:
+            print(f"ERROR: PC is out of range [0, {state.numMemory}). PC value: {state.pc}")
+            return
 
-
-def load_memory_from_file(file_path):
-    """
-    อ่าน machine code จากไฟล์และโหลดเข้าไปใน memory list
-    
-    Parameters:
-    file_path (str): ที่อยู่ของไฟล์ machine code (เช่น output.mc)
-    
-    Returns:
-    list: ลิสต์ของ machine code ที่จะถูกเก็บไว้ใน memory
-    """
-    memory = []
-    with open(file_path, 'r') as file:
-        for line in file:
-            line = line.strip()
-            if line:  # ตรวจสอบว่าบรรทัดไม่ใช่ค่าว่าง
-                memory.append(int(line))
-    return memory
-  
-
-def print_memory(memory):
-    """
-    แสดงค่าทั้งหมดใน memory
-    """
-    for i in range(len(memory)):
-        print(f"memory[{i}]={memory[i]}")
-
-# โหลด machine code จากไฟล์ output.mc
-memory = load_memory_from_file('../Part1_compile/TestOutput.mc')
-# เรียกใช้ simulator กับ machine code ที่โหลดมา
-print_memory(memory)
-simulate(memory, len(memory))
-
-
-
+if __name__ == "__main__":
+    main()
