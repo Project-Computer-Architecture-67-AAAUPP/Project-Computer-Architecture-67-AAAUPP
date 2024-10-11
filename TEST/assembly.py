@@ -26,7 +26,7 @@ class InstructionNode:
 # Helper function to open a file
 def prepare_file(filename, mode):
     try:
-        return open(filename, mode)
+        return open(filename, mode, encoding='utf-8')
     except IOError:
         print(f"ERROR: Can't open file: {filename}!")
         sys.exit(1)
