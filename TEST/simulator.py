@@ -138,10 +138,10 @@ def main():
 
             elif opcode == 5:  # JALR
                 regA, regB = j_getArgs(instruction)
+                output_file.write(f"JALR: Jumping to address {state.reg[regA]} from PC = {state.pc}\n")
                 if state.reg[regB] != 0:  # Check if regB is not zero
                     state.reg[destReg] = state.pc + 1  # Save return address
                     state.pc = state.reg[regA]  # Jump to the address in regA
-
 
             elif opcode == 6:  # HALT
                 o_getArgs(instruction)
