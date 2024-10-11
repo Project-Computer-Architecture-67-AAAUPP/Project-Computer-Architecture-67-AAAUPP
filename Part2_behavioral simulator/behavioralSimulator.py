@@ -87,13 +87,18 @@ def main():
         instruction = state.mem[state.pc]
         opcode = instruction >> 22
 
+        # พิมพ์ค่า PC และ instruction ก่อนทำงาน
+        print(f"PC = {state.pc}, Instruction = {instruction}, Opcode = {opcode}")
+        
         if opcode == 0:  # ADD
             regA, regB, destReg = r_getArgs(instruction)
             state.reg[destReg] = state.reg[regA] + state.reg[regB]
+            print(f"ADD: reg[{destReg}] = reg[{regA}] + reg[{regB}]")
 
         elif opcode == 1:  # NAND
             regA, regB, destReg = r_getArgs(instruction)
             state.reg[destReg] = ~(state.reg[regA] & state.reg[regB])
+            print(f"NAND: reg[{destReg}] = ~(reg[{regA}] & reg[{regB}])")
 
         elif opcode == 2:  # LW
             regA, regB, offsetField = i_getArgs(instruction)
@@ -102,6 +107,7 @@ def main():
                 print(f"ERROR: Invalid memory address: {address} (out of range).")
                 return
             state.reg[regB] = state.mem[address]
+            print(f"LW: reg[{regB}] = mem[{address}]")
 
         elif opcode == 3:  # SW
             regA, regB, offsetField = i_getArgs(instruction)
@@ -110,16 +116,26 @@ def main():
                 print(f"ERROR: Invalid memory address: {address} (out of range).")
                 return
             state.mem[address] = state.reg[regB]
+            print(f"SW: mem[{address}] = reg[{regB}]")
 
         elif opcode == 4:  # BEQ
             regA, regB, offsetField = i_getArgs(instruction)
+            print(f"BEQ: Checking if reg[{regA}] == reg[{regB}]")
             if state.reg[regA] == state.reg[regB]:
-                state.pc += offsetField
-                
+                new_pc = state.pc + offsetField
+                print(f"BEQ: Jump to new PC = {new_pc}")
+                if new_pc < 0 or new_pc >= state.numMemory:
+                    print(f"ERROR: PC is out of range after BEQ: {new_pc}")
+                    return
+                state.pc = new_pc
+            else:
+                print("BEQ: No jump, registers are not equal.")
+
         elif opcode == 5:  # JALR
             regA, regB, destReg = r_getArgs(instruction)
             if state.reg[regB] != 0:
                 state.reg[destReg] = state.reg[regA]
+                print(f"JALR: reg[{destReg}] = reg[{regA}]")
 
         elif opcode == 6:  # HALT
             print("machine halted")
@@ -129,7 +145,7 @@ def main():
             return
 
         elif opcode == 7:  # NOOP
-            pass
+            print("NOOP: No operation")
 
         state.pc += 1
 

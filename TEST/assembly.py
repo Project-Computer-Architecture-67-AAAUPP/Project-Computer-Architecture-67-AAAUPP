@@ -74,7 +74,7 @@ def get_symbol_address(root, label):
 def read_assembly(infile, root, instructions):
     i = 0  # indexor
     for line in infile:
-        line = line.strip()
+        line = line.split('#')[0].strip()
         if len(line) == 0:
             continue  # skip empty lines
 
@@ -128,18 +128,13 @@ def parse(root, inode):
             offset = label_address - (inode.address + 1)  # Offset is relative to the next instruction
         else:
             offset = int(inode.arg2)
-
-        if offset < -32768 or offset > 32767:
-            print(f"ERROR: Offset {offset} out of range for beq at address {inode.address}")
-            sys.exit(1)
-
         return i_type(4 << 22, inode.arg0, inode.arg1, offset)
     elif inode.opcode == 'jalr':
-        return r_type(5 << 22, inode.arg0, inode.arg1, '0')  # Using r-type format for jalr
+        return j_type(5 << 22, inode.arg0, inode.arg1)  # rs in arg0, rd in arg1
     elif inode.opcode == 'halt':
-        return 6 << 22
+        return o_type(6 << 22)
     elif inode.opcode == 'noop':
-        return 7 << 22
+        return o_type(7 << 22)
     elif inode.opcode == '.fill':
         if is_valid_label(inode.arg0):
             return get_symbol_address(root, inode.arg0)
@@ -169,6 +164,16 @@ def i_type(op, reg1, reg2, offset):
         offset = (1 << 16) + offset  # Convert to 16-bit two's complement
 
     return (op | (regA << 19) | (regB << 16) | offset)
+
+# Convert arguments to a bitstring representing a J-Type instruction
+def j_type(op, reg1, reg2):
+    regA = int(reg1)
+    regB = int(reg2)
+    return (op | (regA << 19) | (regB << 16))
+
+# Convert arguments to a bitstring representing an O-Type instruction
+def o_type(op):
+    return op
 
 # Entry point
 if __name__ == "__main__":
