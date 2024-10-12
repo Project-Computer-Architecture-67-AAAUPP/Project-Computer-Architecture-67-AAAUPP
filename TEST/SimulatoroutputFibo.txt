@@ -1,0 +1,1084 @@
+memory[0]=8650770
+memory[1]=8781843
+memory[2]=8519699
+memory[3]=8454164
+memory[4]=8716309
+memory[5]=18939912
+memory[6]=19988489
+memory[7]=2490372
+memory[8]=2752517
+memory[9]=19464196
+memory[10]=3407878
+memory[11]=2752517
+memory[12]=19464195
+memory[13]=16842745
+memory[14]=1835011
+memory[15]=25165824
+memory[16]=1966083
+memory[17]=25165824
+memory[18]=0
+memory[19]=1
+memory[20]=6
+memory[21]=1
+
+@@@
+state:
+	pc 0
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 0
+		reg[ 2 ] 0
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+PC = 0, Instruction = 8650770, Opcode = 2
+LW: reg[4] = mem[18]
+
+@@@
+state:
+	pc 1
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 0
+		reg[ 2 ] 0
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 0
+		reg[ 7 ] 0
+end state
+PC = 1, Instruction = 8781843, Opcode = 2
+LW: reg[6] = mem[19]
+
+@@@
+state:
+	pc 2
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 0
+		reg[ 2 ] 0
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 1
+		reg[ 7 ] 0
+end state
+PC = 2, Instruction = 8519699, Opcode = 2
+LW: reg[2] = mem[19]
+
+@@@
+state:
+	pc 3
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 0
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 1
+		reg[ 7 ] 0
+end state
+PC = 3, Instruction = 8454164, Opcode = 2
+LW: reg[1] = mem[20]
+
+@@@
+state:
+	pc 4
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 0
+		reg[ 6 ] 1
+		reg[ 7 ] 0
+end state
+PC = 4, Instruction = 8716309, Opcode = 2
+LW: reg[5] = mem[21]
+
+@@@
+state:
+	pc 5
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 1
+		reg[ 6 ] 1
+		reg[ 7 ] 0
+end state
+PC = 5, Instruction = 18939912, Opcode = 4
+BEQ: Checking if reg[4] == reg[1]
+BEQ: No jump, registers are not equal.
+
+@@@
+state:
+	pc 6
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 1
+		reg[ 6 ] 1
+		reg[ 7 ] 0
+end state
+PC = 6, Instruction = 19988489, Opcode = 4
+BEQ: Checking if reg[6] == reg[1]
+BEQ: No jump, registers are not equal.
+
+@@@
+state:
+	pc 7
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 0
+		reg[ 5 ] 1
+		reg[ 6 ] 1
+		reg[ 7 ] 0
+end state
+PC = 7, Instruction = 2490372, Opcode = 0
+ADD: reg[4] = reg[4] + reg[6]
+
+@@@
+state:
+	pc 8
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 1
+		reg[ 5 ] 1
+		reg[ 6 ] 1
+		reg[ 7 ] 0
+end state
+PC = 8, Instruction = 2752517, Opcode = 0
+ADD: reg[5] = reg[5] + reg[2]
+
+@@@
+state:
+	pc 9
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 1
+		reg[ 5 ] 2
+		reg[ 6 ] 1
+		reg[ 7 ] 0
+end state
+PC = 9, Instruction = 19464196, Opcode = 4
+BEQ: Checking if reg[5] == reg[1]
+BEQ: No jump, registers are not equal.
+
+@@@
+state:
+	pc 10
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 1
+		reg[ 5 ] 2
+		reg[ 6 ] 1
+		reg[ 7 ] 0
+end state
+PC = 10, Instruction = 3407878, Opcode = 0
+ADD: reg[6] = reg[6] + reg[4]
+
+@@@
+state:
+	pc 11
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 1
+		reg[ 5 ] 2
+		reg[ 6 ] 2
+		reg[ 7 ] 0
+end state
+PC = 11, Instruction = 2752517, Opcode = 0
+ADD: reg[5] = reg[5] + reg[2]
+
+@@@
+state:
+	pc 12
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 1
+		reg[ 5 ] 3
+		reg[ 6 ] 2
+		reg[ 7 ] 0
+end state
+PC = 12, Instruction = 19464195, Opcode = 4
+BEQ: Checking if reg[5] == reg[1]
+BEQ: No jump, registers are not equal.
+
+@@@
+state:
+	pc 13
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 1
+		reg[ 5 ] 3
+		reg[ 6 ] 2
+		reg[ 7 ] 0
+end state
+PC = 13, Instruction = 16842745, Opcode = 4
+BEQ: Checking if reg[0] == reg[0]
+BEQ: Jump to PC7
+
+@@@
+state:
+	pc 7
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 1
+		reg[ 5 ] 3
+		reg[ 6 ] 2
+		reg[ 7 ] 0
+end state
+PC = 7, Instruction = 2490372, Opcode = 0
+ADD: reg[4] = reg[4] + reg[6]
+
+@@@
+state:
+	pc 8
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 3
+		reg[ 5 ] 3
+		reg[ 6 ] 2
+		reg[ 7 ] 0
+end state
+PC = 8, Instruction = 2752517, Opcode = 0
+ADD: reg[5] = reg[5] + reg[2]
+
+@@@
+state:
+	pc 9
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 3
+		reg[ 5 ] 4
+		reg[ 6 ] 2
+		reg[ 7 ] 0
+end state
+PC = 9, Instruction = 19464196, Opcode = 4
+BEQ: Checking if reg[5] == reg[1]
+BEQ: No jump, registers are not equal.
+
+@@@
+state:
+	pc 10
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 3
+		reg[ 5 ] 4
+		reg[ 6 ] 2
+		reg[ 7 ] 0
+end state
+PC = 10, Instruction = 3407878, Opcode = 0
+ADD: reg[6] = reg[6] + reg[4]
+
+@@@
+state:
+	pc 11
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 3
+		reg[ 5 ] 4
+		reg[ 6 ] 5
+		reg[ 7 ] 0
+end state
+PC = 11, Instruction = 2752517, Opcode = 0
+ADD: reg[5] = reg[5] + reg[2]
+
+@@@
+state:
+	pc 12
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 3
+		reg[ 5 ] 5
+		reg[ 6 ] 5
+		reg[ 7 ] 0
+end state
+PC = 12, Instruction = 19464195, Opcode = 4
+BEQ: Checking if reg[5] == reg[1]
+BEQ: No jump, registers are not equal.
+
+@@@
+state:
+	pc 13
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 3
+		reg[ 5 ] 5
+		reg[ 6 ] 5
+		reg[ 7 ] 0
+end state
+PC = 13, Instruction = 16842745, Opcode = 4
+BEQ: Checking if reg[0] == reg[0]
+BEQ: Jump to PC7
+
+@@@
+state:
+	pc 7
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 3
+		reg[ 5 ] 5
+		reg[ 6 ] 5
+		reg[ 7 ] 0
+end state
+PC = 7, Instruction = 2490372, Opcode = 0
+ADD: reg[4] = reg[4] + reg[6]
+
+@@@
+state:
+	pc 8
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 8
+		reg[ 5 ] 5
+		reg[ 6 ] 5
+		reg[ 7 ] 0
+end state
+PC = 8, Instruction = 2752517, Opcode = 0
+ADD: reg[5] = reg[5] + reg[2]
+
+@@@
+state:
+	pc 9
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 8
+		reg[ 5 ] 6
+		reg[ 6 ] 5
+		reg[ 7 ] 0
+end state
+PC = 9, Instruction = 19464196, Opcode = 4
+BEQ: Checking if reg[5] == reg[1]
+BEQ: Jump to PC14
+
+@@@
+state:
+	pc 14
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 0
+		reg[ 4 ] 8
+		reg[ 5 ] 6
+		reg[ 6 ] 5
+		reg[ 7 ] 0
+end state
+PC = 14, Instruction = 1835011, Opcode = 0
+ADD: reg[3] = reg[3] + reg[4]
+
+@@@
+state:
+	pc 15
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 8
+		reg[ 4 ] 8
+		reg[ 5 ] 6
+		reg[ 6 ] 5
+		reg[ 7 ] 0
+end state
+PC = 15, Instruction = 25165824, Opcode = 6
+machine halted
+total of 26 instructions executed
+final state of machine:
+
+@@@
+state:
+	pc 15
+	memory:
+		mem[ 0 ] 8650770
+		mem[ 1 ] 8781843
+		mem[ 2 ] 8519699
+		mem[ 3 ] 8454164
+		mem[ 4 ] 8716309
+		mem[ 5 ] 18939912
+		mem[ 6 ] 19988489
+		mem[ 7 ] 2490372
+		mem[ 8 ] 2752517
+		mem[ 9 ] 19464196
+		mem[ 10 ] 3407878
+		mem[ 11 ] 2752517
+		mem[ 12 ] 19464195
+		mem[ 13 ] 16842745
+		mem[ 14 ] 1835011
+		mem[ 15 ] 25165824
+		mem[ 16 ] 1966083
+		mem[ 17 ] 25165824
+		mem[ 18 ] 0
+		mem[ 19 ] 1
+		mem[ 20 ] 6
+		mem[ 21 ] 1
+	registers:
+		reg[ 0 ] 0
+		reg[ 1 ] 6
+		reg[ 2 ] 1
+		reg[ 3 ] 8
+		reg[ 4 ] 8
+		reg[ 5 ] 6
+		reg[ 6 ] 5
+		reg[ 7 ] 0
+end state
