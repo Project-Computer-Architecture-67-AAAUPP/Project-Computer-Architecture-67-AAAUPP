@@ -15,7 +15,7 @@ Due Date 13 ตุลาคม 2567 เวลา 23.00 น.
 Problem
 Project นี้มีทั้งหมด 3 ส่วนดั้งนี้
 
->>>>>>> 16f7d7db7c46f91fa8a59ac49df61cde0b097514
+>>>>>>>
 1. เขียน program ที่รับ assembly language program และ สร้าง machine language ตาม assembly program นั้น
 2. เขียน behavioral simulator สำหรับ machine code นั้น
 3. เขียน assembly language program สั้นๆเกี่ยวกับ การคูณของเลข 2 จำนวน และการทำ recursive function
