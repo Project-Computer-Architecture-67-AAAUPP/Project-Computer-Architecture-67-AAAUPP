@@ -1,5 +1,5 @@
 # Project-Computer-Architecture-67-AAAUPP
-<<<<<<< HEAD
+>>>>>>> HEAD
 Project 1 Computer Architecture (CPE 261304)
 Due Date 13 ตุลาคม 2567 เวลา 23.00 น.
 นัดตรวจโปรแกรมในวันจันทร์ที่ 14 ตุลาคม 2567  เวลา 13.30 เป็นต้นไป
