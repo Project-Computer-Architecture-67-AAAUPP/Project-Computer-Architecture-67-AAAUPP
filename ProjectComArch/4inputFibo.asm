@@ -11,7 +11,7 @@
     loop    add 4 6 4       #f[0] += f[1]      #start reg4=1       # reg4=3 
             add 5 2 5       #counter++                             # position =4                          
             beq 5 1 f0      #if(input == counter) go to f0         # if(input == position ) เอา reg4 ไปตอบ  
-                                               #first value reg6=1
+                                               #first value reg6=1,reg4=0
             add 6 4 6       #f[1] += f[0]                          # reg6=5 
             add 5 2 5       #counter++                             # start =5  
             beq 5 1 f1      #if(input == counter) go to f1         # if(input == position ) เอา reg6 ไปตอบ

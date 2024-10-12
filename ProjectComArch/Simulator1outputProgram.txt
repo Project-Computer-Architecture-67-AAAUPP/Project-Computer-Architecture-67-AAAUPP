@@ -144,7 +144,7 @@ state:
 end state
 PC = 4, Instruction = 16842749, Opcode = 4
 BEQ: Checking if reg[0] == reg[0]
-BEQ: Jump to new PC = 1
+BEQ: Jump to PC2
 
 @@@
 state:
@@ -227,7 +227,7 @@ state:
 end state
 PC = 4, Instruction = 16842749, Opcode = 4
 BEQ: Checking if reg[0] == reg[0]
-BEQ: Jump to new PC = 1
+BEQ: Jump to PC2
 
 @@@
 state:
@@ -310,7 +310,7 @@ state:
 end state
 PC = 4, Instruction = 16842749, Opcode = 4
 BEQ: Checking if reg[0] == reg[0]
-BEQ: Jump to new PC = 1
+BEQ: Jump to PC2
 
 @@@
 state:
@@ -393,7 +393,7 @@ state:
 end state
 PC = 4, Instruction = 16842749, Opcode = 4
 BEQ: Checking if reg[0] == reg[0]
-BEQ: Jump to new PC = 1
+BEQ: Jump to PC2
 
 @@@
 state:
@@ -448,7 +448,7 @@ state:
 end state
 PC = 3, Instruction = 16842754, Opcode = 4
 BEQ: Checking if reg[0] == reg[1]
-BEQ: Jump to new PC = 5
+BEQ: Jump to PC6
 
 @@@
 state:

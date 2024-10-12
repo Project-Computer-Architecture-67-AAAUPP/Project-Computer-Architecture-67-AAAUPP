@@ -1,0 +1,12 @@
+#Compile Assembly to MachineCode By #assembly.py
+    -python .\assembly.py .\1inputProgram.asm .\1outputProgram.mc
+    -python .\assembly.py .\2inputMultiplication.asm .\2outputMultiplication.mc
+    -python .\assembly.py .\3inputCombination.asm .\3outputCombination.mc
+    -python .\assembly.py .\4inputFibo.asm .\4outputFibo.mc
+    -python .\assembly.py .\5inputSubtract.asm .\5outputSubtract.mc
+#Simulate Output from above
+    -python .\simulator.py .\1outputProgram.mc
+    -python .\simulator.py .\2outputMultiplication.mc
+    -python .\simulator.py .\2outputMultiplication.mc
+    -python .\simulator.py .\3outputCombination.mc 
+    -python .\simulator.py .\5outputSubtract.mc
